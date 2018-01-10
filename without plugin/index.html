@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=1" >
+<meta name="keywords" content="HTML,CSS,JavaScript">
+<meta name="author" content="Anwesha">
+	<title>formvalidation
+	</title>
+	<link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+
+
+<div class="container">
+  <h2>Registration</h2>
+  <form action="" method="post" name="registration">
+	<div class="input-item">
+	    <label for="firstname">First Name</label>
+	    <input type="text" name="firstname" id="firstname" placeholder="John" required="">
+	    <span class="one">This field is required</span>
+    </div>
+	<div class="input-item">
+		<label for="lastname">Last Name</label>
+		<input type="text" name="lastname" id="lastname" placeholder="Doe" required >
+		<span class="two">This field is required</span>
+    </div>
+	<div class="input-item">
+		<label for="email">Email</label>
+		<input type="email" name="email" id="email" placeholder="john@doe.com">
+		<span class="three">This field is required</span>
+    </div>
+	<div class="input-item">
+		<label for="phonenumber">Phone   Number</label>
+		<input type="number" name="phonenumber" id="phonenumber" placeholder="017********">
+		<span class="four">This field is required</span>
+    </div>
+	<div class="input-item">
+		<label for="password">Password</label>
+		<input type="password" name="password" id="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;">
+		<span class="five">This field is required</span>
+    </div>
+	<div class="input-item">
+		<label for="retypepassword">Re Type Password</label>
+		<input type="password" name="retypepassword" id="retypepassword" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;">
+		<span class="six">This field is required</span>
+    </div>
+    <button id="submitbutton" type="submit">Register</button>
+  </form>
+
+
+</div>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+ 
+  <script>
+		jQuery(document).ready(function($){
+
+			 $("#firstname").focusout(function(){
+
+			 	if ($('#firstname').val() == '') {
+        			$(".one").css("display", "block");
+        			$(this).css("margin-bottom","30px");
+
+    			}
+    			
+    });	 
+			 $("#lastname").focusout(function(){
+
+			 	if ($('#lastname').val() == '') {
+        			$(".two").css("display", "block");
+        			$(this).css("margin-bottom","30px");
+    			}
+    			
+    });	 
+			 $("#email").focusout(function(){
+
+			 	if ($('#email').val() == '') {
+        			$(".three").css("display", "block");
+        			$(this).css("margin-bottom","30px");
+    			}
+    			
+    });	
+    		 $("#phonenumber").focusout(function(){
+
+			 	if ($('#phonenumber').val() == '') {
+			 		$(".four").text("This field is required");
+        			$(".four").css("display", "block");
+        			$(this).css("margin-bottom","30px");
+    			}
+
+
+	 		var x=$("#phonenumber").val();
+	 				
+					if(x.substring(0,3)!='017' && x.substring(0,3)!='019' && x.substring(0,3)!='018' && x.substring(0,3)!='015' && x.substring(0,3)!='016')
+		 			{
+		 				$(".four").text("invalid phone number");
+		 				$(".four").css("display", "block");
+		 				$(this).css("margin-bottom","30px");
+
+		 			}
+		 			else if(x.length!=11)
+		 			{
+		 				$(".four").text("phone number must be 11 digit");
+		 				$(".four").css("display", "block");
+		 				$(this).css("margin-bottom","30px");
+		 			}
+		 			else
+		 			{
+		 				$(".four").css("display", "none");
+		 				$(this).css("margin-bottom","3px");	
+		 			}
+    		
+    });	 
+    		 $("#password").focusout(function(){
+
+			 	if ($('#password').val() == '') {
+        			$(".five").css("display", "block");
+        			$(this).css("margin-bottom","30px");
+    			}
+    			
+    });
+			 $("#retypepassword").focusout(function(){
+
+			 	if ($('#retypepassword').val() == '') {
+        			$(".six").css("display", "block");
+        			$(this).css("margin-bottom","30px");
+    			}
+    			
+    });
+
+	 		$("#firstname").focusin(function(){
+	 			
+
+	 			$("input").keyup(function(){
+	        		$(".one").css("display", "none");
+	        		$(this).css("margin-bottom","3px");
+	        		
+
+	        		if(($("#firstname").val().length)>10)
+		 			{
+		 				
+		 				$(".one").text("Firstname should not be more than 10 characters");
+		 				$(".one").css("display", "block");
+		 				$(this).css("margin-bottom","30px");
+		 				
+		 			}
+		 			else {
+		 				
+		 				$(".one").css("display", "none");
+		 				$(this).css("margin-bottom","3px");	
+		 			}
+
+	 			
+
+	 				
+
+		});
+
+		        
+    });
+	 		$("#lastname").focusin(function(){
+	 		
+	 			$("input").keyup(function(){
+        			$(".two").css("display", "none");
+        			$(this).css("margin-bottom","3px");
+
+        		if(($("#lastname").val().length)>10)
+		 			{
+		 				
+		 				$(".two").text("Lastname should not be more than 10 characters");
+		 				$(".two").css("display", "block");
+		 				$(this).css("margin-bottom","30px");
+		 			
+		 			}
+		 			else {
+		 				
+		 				$(".two").css("display", "none");
+		 				$(this).css("margin-bottom","3px");	
+		 			}
+
+        		
+
+    	});
+        
+    });
+	 		$("#email").focusin(function(){
+	 			
+	 			$("input").keypress(function(){
+        			$(".three").css("display", "none");
+        			$(this).css("margin-bottom","3px");
+        		
+
+    	});
+        
+    });
+	 		$("#phonenumber").focusin(function(){
+	 			
+	 			$("input").keyup(function(){
+
+        			$(".four").css("display", "none");
+        			$(this).css("margin-bottom","3px");
+
+        			
+
+        			if(($("#phonenumber").val().length)>11)
+		 			{
+		 				
+		 				$(".four").text("Phone number should be 11 characters");
+		 				$(".four").css("display", "block");
+		 				$(this).css("margin-bottom","30px");
+		 				
+		 			}
+
+		 			else {
+		 				
+		 				$(".four").css("display", "none");
+		 				$(this).css("margin-bottom","3px");	
+		 			}
+
+
+
+		 });
+        
+    });
+
+
+	 		$("#password").focusin(function(){
+	 			
+	 			$("input").keyup(function(){
+        			$(".five").css("display", "none");
+        			$(this).css("margin-bottom","3px");
+
+        			if(($("#password").val().length)<5)
+		 			{
+		 				
+		 				$(".five").text("Password should be atleast 5 characters");
+		 				$(".five").css("display", "block");
+		 				$(this).css("margin-bottom","30px");
+		 				
+		 			}
+		 			else {
+		 				
+		 				$(".five").css("display", "none");
+		 				$(this).css("margin-bottom","3px");	
+		 			}
+        		
+
+    	});
+        
+    });
+	 		$("#retypepassword").focusin(function(){
+	 		
+
+	 			$("input").keyup(function(){
+        			$(".six").css("display", "none");
+        			$(this).css("margin-bottom","3px");
+
+      			
+		 			if($("#retypepassword").val()!=$("#password").val())
+		 			{
+		 				$(".six").text("Password should be as the before");
+		 				$(".six").css("display", "block");
+		 				$(this).css("margin-bottom","30px");
+
+		 			}
+		 			else {
+		 				$(".six").text("Password matched");
+		 				$(".six").css("display", "block");
+		 				$(this).css("margin-bottom","30px");	
+		 			}
+        		
+        		
+
+    	});
+        
+    });
+
+			
+		
+
+			
+			$('#firstname').bind('keyup blur',function(){ 
+		    var node = $(this);
+		    node.val(node.val().replace(/[^a-z]/g,'') ); 
+		     
+		});	
+			$('#lastname').bind('keyup blur',function(){ 
+		    var node = $(this);
+		    node.val(node.val().replace(/[^a-z]/g,'') ); 
+		     
+		});
+
+			$('#email').change(function(){
+				var email =($('#email').val());
+
+			if(email==='' | email=== null) {
+			    $('#erroremail').show();
+			} 
+			else {
+			    var checkemail = email;
+			    var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
+
+			    if(filter.test(checkemail)) {
+			        return true;
+			    } else {
+			    	$(".three").text("email address is not correct");
+			       $(".three").css("display", "block");
+			       $("#email").css("margin-bottom","30px");
+			        return false;
+			    }
+			}
+		});
+			
+
+$('#submitbutton').click(function(){
+
+				valid = true;   
+
+			    if ($('#firstname').val() == '') {
+			        $(".one").css("display", "block");
+        			$("#firstname").css("margin-bottom","30px");
+			    }
+
+			    if ($('#lastname').val() == '') {
+			        $(".two").css("display", "block");
+        			$("#lastname").css("margin-bottom","30px");
+			    }   
+
+			    if ($('#email').val() == '') {
+			        $(".three").css("display", "block");
+        			$("#email").css("margin-bottom","30px");
+			    }  
+
+
+			    if ($('#phonenumber').val() == '') {
+			        $(".four").css("display", "block");
+        			$("#phonenumber").css("margin-bottom","30px");
+			    }  
+
+
+			    if ($('#password').val() == '') {
+			       $(".five").css("display", "block");
+        			$("#password").css("margin-bottom","30px");
+			    }  
+
+
+			    if ($('#retypepassword').val() == '') {
+			        $(".six").css("display", "block");
+        			$("#retypepassword").css("margin-bottom","30px");
+			    } 
+
+			  
+
+			});
+
+
+
+		});
+  </script> 
+
+	
+</body>
+</html>

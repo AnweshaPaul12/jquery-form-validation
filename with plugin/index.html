@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>formvalidation
+	</title>
+	<link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+
+
+<div class="container">
+  <h2>Registration</h2>
+  <form action="" name="registration">
+
+    <label for="firstname">First Name</label>
+    <input type="text" name="firstname" id="firstname" placeholder="John">
+
+    <label for="lastname">Last Name</label>
+    <input type="text" name="lastname" id="lastname" placeholder="Doe">
+
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" placeholder="john@doe.com">
+
+    <label for="phonenumber">Phone   Number</label>
+    <input type="number" name="phonenumber" id="phonenumber" placeholder="017********">
+
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;">
+
+    <label for="retypepassword">Re Type Password</label>
+    <input type="password" name="retypepassword" id="retypepassword" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;">
+
+    <button id="submitbutton" type="submit">Register</button>
+  </form>
+
+<!--   <div class="article-reference">
+    This example is part of the article
+    <a href="https://www.sitepoint.com/basic-jquery-form-validation-tutorial/" target="_blank">Basic jQuery Form Validation Example</a> on <a href="http://sitepoint.com/" target="_blank">SitePoint</a> by
+    <a href="https://github.com/julmot" target="_blank">Julian Motz</a>.
+  </div> -->
+</div>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/script.js"></script>
+ <!--  <script>
+		jQuery(document).ready(function($){
+
+			$('#submitbutton').click(function(){
+
+				valid = true;   
+
+			    if ($('#firstname').val() == '') {
+			        alert ("please enter your first name");
+			        valid = false;
+			    }
+
+			    if ($('#lastname').val() == '') {
+			        alert ("please enter your lastname");
+			         valid = false;
+			    }   
+
+			    if ($('#email').val() == '') {
+			        alert ("please enter your emailaddress");
+			         valid = false;
+			    }  
+
+
+			    if ($('#phonenumber').val() == '') {
+			        alert ("please enter your mobile number");
+			         valid = false;
+			    }  
+
+
+			    if ($('#password').val() == '') {
+			        alert ("please enter password");
+			         valid = false;
+			    }  
+
+
+			    if ($('#retypepassword').val() == '') {
+			        alert ("please retype password");
+			         valid = false;
+			    } 
+
+			  
+
+			});
+
+			$('#firstname').bind('keyup blur',function(){ 
+		    var node = $(this);
+		    node.val(node.val().replace(/[^a-z]/g,'') );
+
+		    if(node.val().length>10)
+		    {
+		    	alert("name can't be more than 10 letter");
+		    	// valid=false;
+		    } 
+		}
+			);
+
+			
+			$('#lastname').bind('keyup blur',function(){ 
+		    var node = $(this);
+		    node.val(node.val().replace(/[^a-z]/g,'') ); 
+		    if(node.val().length>10)
+		    {
+		    	alert("name can't be more than 10 letter");
+		    	// valid=false;
+		    } 
+		}
+			);
+
+			$('#email').change(function(){
+				var email =($('#email').val());
+
+			if(email==='' | email=== null) {
+			    $('#erroremail').show();
+			} 
+			else {
+			    var checkemail = email;
+			    var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
+
+			    if(filter.test(checkemail)) {
+			        return true;
+			    } else {
+			        alert('Not Correct');
+			        return false;
+			    }
+			}
+		});
+			$('#phonenumber').on('change', function() { 
+		    var node = $(this);
+		    node.val(node.val().replace(/^(0)/,''));
+		    
+		    if(node.val().length !=11)
+		    {
+		    	alert(" wrong phn number");
+		    	// valid=false;
+		    } 
+		}
+			);
+
+
+				$('#password').on('change', function() { 
+		    var node = $(this);
+		    if(node.val().length <5)
+		    {
+		    	alert(" password must be atleast 5 digit");
+		    	// valid=false;
+		    } 
+		}
+			);
+
+
+
+		});
+  </script> -->
+<!-- <script>
+	jQuery(document).ready(function($){
+						
+		$("form[name='registration']").validate({
+    // Specify validation rules
+    rules: {
+      // The key name on the left side is the name attribute
+      // of an input field. Validation rules are defined
+      // on the right side
+      firstname: "required",
+      lastname: "required",
+      email: {
+        required: true,
+        // Specify that email should be validated
+        // by the built-in "email" rule
+        email: true
+      },
+      password: {
+        required: true,
+        minlength: 8
+      }
+
+    },
+    // Specify validation error messages
+    messages: {
+      firstname: "Please enter your firstname",
+      lastname: "Please enter your lastname",
+      password: {
+        required: "Please provide a password",
+        minlength: "Your password must be at least 5 characters long"
+      },
+      email: "Please enter a valid email address"
+    },
+    // Make sure the form is submitted to the destination defined
+    // in the "action" attribute of the form when valid
+    submitHandler: function(form) {
+      form.submit();
+    }
+  	});
+
+});
+</script> -->
+	
+</body>
+</html>
