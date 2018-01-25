@@ -1,27 +1,18 @@
-
 * {
   margin: 0;
   padding: 0;
-}
-
-body {
   font-family: "Open Sans";
   font-size: 14px;
 }
-
 .container {
   width: 500px;
   margin: 25px auto;
 }
-
 form {
   padding: 20px;
   background: #2c3e50;
   color: #fff;
 }
-
-/* @include border-radius(4px);*/
-
 label,
 input,
 button {
@@ -43,12 +34,8 @@ button {
   padding: 0 6px;
   width: 100%;
   display: block;
- /* margin-bottom: 30px;*/
 } 
-
-
-.input-item span
-{
+.input-item span {
   position: absolute;
   left:0;
   top:46px;
@@ -62,33 +49,25 @@ button {
   display:none;
 }
 button {
-    height: 33px;
-    line-height: 30px;
-    background: #e67e22;
-    color: #fff;
-    margin-top: 25px;
-    cursor: pointer;
-    font-size: 19px;
-    font-weight: 700;
-}
+  height: 33px;
+  line-height: 30px;
+  background: #e67e22;
+  color: #fff;
+  margin-top: 25px;
+  cursor: pointer;
+  font-size: 19px;
+  font-weight: 700;
 }
 .error {
   color:  #ff0000;
 }
-
-
 .article-reference {
   margin-top: 15px;
-  
 }
 .article-reference a {
   color: #e67e22;
 }
-
-
-
-.bottom-margin
-{
+.bottom-margin {
   margin-bottom: 30px;
 }
 
